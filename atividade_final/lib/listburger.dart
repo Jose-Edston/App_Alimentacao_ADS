@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'detailsfood.dart';
+import 'listfood.dart';
 
 class ListBurgers extends StatefulWidget {
   const ListBurgers({super.key});
@@ -17,19 +19,26 @@ class _ListBurgersState extends State<ListBurgers> {
       ),
       body: Container(
         child: ListView.builder(
-        itemCount: Foods[0]['Hambúrgueres'].length, 
-        itemBuilder: (context, index){
-          return ListTile(
-            onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => DetalhesFood(dados: Foods[0]['Hambúrgueres'][index])));
-            },
-            leading: Image.network(Foods[0]['Hambúrgueres'][index]['image']),
-            title: Text(Foods[0]['Hambúrgueres'][index]['name']),
-            subtitle: Text(Foods[0]['Hambúrgueres'][index]['description']),
-            trailing: Text(Foods[0]['Hambúrgueres'][index]['price'].toString()),
-          );
-        },
-      ),
+          itemCount: Foods[0]['Hambúrgueres'].length,
+          itemBuilder: (context, index) {
+            return ListTile(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) =>
+                        DetalhesFood(dados: Foods[0]['Hambúrgueres'][index]),
+                  ),
+                );
+              },
+              leading: Image.network(Foods[0]['Hambúrgueres'][index]['image']),
+              title: Text(Foods[0]['Hambúrgueres'][index]['name']),
+              subtitle: Text(Foods[0]['Hambúrgueres'][index]['description']),
+              trailing: Text(
+                  'R\$' + Foods[0]['Hambúrgueres'][index]['price'].toString()),
+            );
+          },
+        ),
       ),
     );
   }

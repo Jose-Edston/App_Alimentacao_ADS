@@ -3,9 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:atividade_final/home.dart';
 
 void main() {
-  runApp(
-    MyApp()
-  );
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
